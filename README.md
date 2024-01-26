@@ -10,6 +10,10 @@ A sleek and intuitive weather application built with React.js, providing real-ti
 - **Responsive Design**: Enjoy a seamless experience on both desktop and mobile devices.
 - **Elegant UI**: A clean and modern user interface for easy navigation.
 
+## Live Demo
+
+Visit the live demo of the app here: [React Weather App Live Demo](https://vk-weather-app.vercel.app/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -23,9 +27,8 @@ What things you need to install the software and how to install them:
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running:
+A step-by-step series of examples that tell you how to get a development environment running:
 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/vishnukkrishna/Weather-App-React-JS.git
-   ```
