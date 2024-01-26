@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease; /* Add a smooth transition for all elements */
+  transition: all 0.3s ease;
 }
 
 body {
@@ -134,4 +134,16 @@ h1 {
 
 .bold {
   font-weight: 700;
+}
+
+footer {
+  text-align: end;
+  padding: 1px;
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  color: #ffffff;
+}
+
+footer p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
 }

@@ -59,7 +59,7 @@ function App() {
             <div className="feels">
               {data.main ? (
                 <p className="bold">
-                  {kelvinToFahrenheit(data.main.feels_like).toFixed()}°C
+                  {kelvinToFahrenheit(data.main.feels_like).toFixed()}°F
                 </p>
               ) : null}
               <p>Feels Like</p>
@@ -76,6 +76,9 @@ function App() {
             </div>
           </div>
         )}
+        <footer>
+          <h4 className="copyright">&copy; 2024 Vishnu Krishnakumar</h4>
+        </footer>
       </div>
     </div>
   );
