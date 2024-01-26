@@ -5,16 +5,27 @@ function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=78f6b87e87d905303d2a498fde1bc61f`;
+  const apiKey = "78f6b87e87d905303d2a498fde1bc61f";
+  // Fetch data in Kelvin (default)
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
       axios.get(url).then((response) => {
         setData(response.data);
-        console.log(response.data);
       });
       setLocation("");
     }
+  };
+
+  // Convert Kelvin to Fahrenheit
+  const kelvinToFahrenheit = (kelvin) => {
+    return ((kelvin - 273.15) * 9) / 5 + 32;
+  };
+
+  // Convert Kelvin to Celsius
+  const kelvinToCelsius = (kelvin) => {
+    return kelvin - 273.15;
   };
 
   return (
@@ -24,7 +35,7 @@ function App() {
           value={location}
           onChange={(event) => setLocation(event.target.value)}
           onKeyPress={searchLocation}
-          placeholder="Enter Location"
+          placeholder="Enter Location..."
           type="text"
         />
       </div>
@@ -34,7 +45,9 @@ function App() {
             <p>{data.name}</p>
           </div>
           <div className="temp">
-            {data.main ? <h1>{data.main.temp.toFixed()}°F</h1> : null}
+            {data.main ? (
+              <h1>{kelvinToCelsius(data.main.temp).toFixed()}°C</h1>
+            ) : null}
           </div>
           <div className="description">
             {data.weather ? <p>{data.weather[0].main}</p> : null}
@@ -45,7 +58,9 @@ function App() {
           <div className="bottom">
             <div className="feels">
               {data.main ? (
-                <p className="bold">{data.main.feels_like.toFixed()}°F</p>
+                <p className="bold">
+                  {kelvinToFahrenheit(data.main.feels_like).toFixed()}°C
+                </p>
               ) : null}
               <p>Feels Like</p>
             </div>
