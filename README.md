@@ -32,3 +32,4 @@ A step-by-step series of examples that tell you how to get a development environ
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/vishnukkrishna/Weather-App-React-JS.git
+   ```

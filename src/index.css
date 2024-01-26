@@ -1,67 +1,80 @@
+/* Importing Google Fonts: Outfit and Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* Universal Selector: Applies to all elements */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s ease;
+  box-sizing: border-box; /* Content box model */
+  margin: 0; /* No default margin */
+  padding: 0; /* No default padding */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
+/* Body Styling */
 body {
   font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; /* Improve the legibility of text */
+  -moz-osx-font-smoothing: grayscale; /* Font smoothing for Mozilla on OS X */
 }
 
+/* Code Element Styling */
 code {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
+/* Paragraph Styling */
 p {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* Paragraph font size */
 }
 
+/* Heading 1 Styling */
 h1 {
-  font-size: 6rem;
+  font-size: 6rem; /* Size for h1 elements */
 }
 
+/* Main App Container Styling */
 .app {
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+  color: #fff; /* White text color */
+  overflow-y: auto; /* Enables vertical scrolling if needed */
 }
 
+/* Background Image Styling for .app */
 .app::before {
   content: "";
   background: url("../src/assets/sunset.jpg") no-repeat center center;
-  background-size: cover; /* Ensures that the background covers the entire element */
+  background-size: cover; /* Cover the entire area */
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -1; /* Behind the content */
 }
 
+/* Search Bar Styling in .app */
 .app .search {
   text-align: center;
   padding: 1rem;
 }
 
+/* Input Field Styling */
 .app input {
   padding: 0.9rem 4.5rem;
   font-size: 1.2rem;
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.3);
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Animation Keyframes for fadeIn */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -71,11 +84,19 @@ h1 {
   }
 }
 
-::placeholder {
+/* Placeholder Styling for Input Field */
+.app input::placeholder {
   color: #f8f8f8;
-  animation: fadeIn 2s ease forwards;
+  opacity: 0.5;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Placeholder Styling on Input Focus */
+.app input:focus::placeholder {
+  opacity: 1;
+}
+
+/* General Container Styling */
 .container {
   max-width: 700px;
   height: 700px;
@@ -86,41 +107,38 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
 }
 
+/* Container Styling within .app */
 .app .container {
-  max-width: 700px;
-  height: 700px;
-  margin: auto;
-  padding: 0 1rem;
-  position: relative;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px) scale(0.95); /* Positioned slightly lower and scaled down */
+  transition: opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Container Styling on .app Hover */
 .app:hover .container {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Fully visible on hover */
+  transform: translateY(0) scale(1); /* Return to original position and scale */
 }
 
+/* Top Section Styling in .app */
 .app .top {
   width: 100%;
   margin: 1rem auto;
 }
 
+/* Description Section Styling in .app */
 .app .description {
   position: relative;
   right: -90%;
   transform-origin: 0 0;
-  transform: rotate(269deg);
+  transform: rotate(269deg); /* Rotate text for sideways display */
 }
 
+/* Bottom Section Styling in .app */
 .app .bottom {
   display: flex;
   justify-content: space-evenly;
@@ -133,22 +151,25 @@ h1 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Bold Text Styling */
 .bold {
-  font-weight: 700;
+  font-weight: 700; /* Bold font weight */
 }
 
+/* Footer Styling */
 footer {
   text-align: end;
   padding: 1px;
   color: #ffffff;
 }
 
+/* Footer Paragraph Styling */
 footer p {
   margin: 5px 0 0;
   font-size: 0.9rem;
 }
 
-/* Responsive adjustments */
+/* Media Query for Screen Width 768px */
 @media only screen and (max-width: 768px) {
   .app .container {
     height: auto;
@@ -165,29 +186,53 @@ footer p {
   h1 {
     font-size: 3rem;
   }
+}
 
-  @media only screen and (max-width: 480px) {
-    .app input {
-      width: 90%; /* Increase width of input field */
-      padding: 10px; /* Adjust padding */
-      font-size: 0.9rem; /* Adjust font size */
-    }
+/* Media Query for Screen Width 480px */
+@media only screen and (max-width: 480px) {
+  .app input {
+    width: 90%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 
-    h1 {
-      font-size: 2.5rem; /* Further reduce the main temperature size */
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
 
-    p {
-      font-size: 1rem; /* Reduce the font size for smaller screens */
-    }
+  p {
+    font-size: 1rem;
+  }
 
-    .app .top,
-    .app .bottom {
-      margin: 0.25rem auto; /* Adjust margins for tighter spaces */
-    }
+  .app .top,
+  .app .bottom {
+    margin: 0.25rem auto;
+  }
 
-    .app .bottom div {
-      margin-bottom: 1rem; /* Add margin between elements */
-    }
+  .app .bottom div {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Error Message Styling */
+.app .error {
+  background-color: rgba(71, 37, 37, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
