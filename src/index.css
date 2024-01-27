@@ -62,11 +62,6 @@ h1 {
   padding: 1rem;
 }
 
-.app .locationname {
-  font-size: 40px;
-  font-weight: 600;
-}
-
 /* Input Field Styling */
 .app input {
   padding: 0.9rem 4.5rem;
@@ -74,9 +69,10 @@ h1 {
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.3);
-  transition: background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-    color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #fff; /* Change text color if necessary */
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Maximum width */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Animation Keyframes for fadeIn */
@@ -113,6 +109,7 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
+  margin-top: 3rem;
 }
 
 /* Container Styling within .app */
@@ -121,6 +118,11 @@ h1 {
   transform: translateY(20px) scale(0.95); /* Positioned slightly lower and scaled down */
   transition: opacity 0.6s ease-out,
     transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.app .locationname {
+  font-size: 40px;
+  font-weight: 600;
 }
 
 /* Container Styling on .app Hover */
@@ -151,6 +153,7 @@ h1 {
   width: 100%;
   margin: 1rem auto;
   padding: 1rem;
+  margin-top: 4rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.055);
   background-color: rgba(255, 255, 255, 0.2);
