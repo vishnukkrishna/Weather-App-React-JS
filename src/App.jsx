@@ -63,7 +63,7 @@ function App() {
         {/* Top section with location name, temperature, and weather description */}
         <div className="top">
           <div className="location">
-            <p>{data.name}</p>
+            <p className="locationname">{data.name}</p>
           </div>
           <div className="temp">
             {/* Display temperature in Celsius */}
