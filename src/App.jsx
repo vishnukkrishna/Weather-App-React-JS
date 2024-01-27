@@ -59,62 +59,69 @@ function App() {
       </div>
 
       {/* Main container for weather information */}
-      <div className="container">
-        {/* Top section with location name, temperature, and weather description */}
-        <div className="top">
-          <div className="location">
-            <p className="locationname">{data.name}</p>
-          </div>
-          <div className="temp">
-            {/* Display temperature in Celsius */}
-            {data.main ? (
-              <h1>{kelvinToCelsius(data.main.temp).toFixed()}°C</h1>
-            ) : null}
-          </div>
-          <div className="description">
-            {/* Display weather description */}
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
-          </div>
-        </div>
-
-        {/* Bottom section with "Feels Like," Humidity, and Wind Speed */}
-        {data.name !== undefined && (
-          <div className="bottom">
-            <div className="feels">
-              {/* Display "Feels Like" temperature in Fahrenheit */}
+      <div>
+        <div className="container">
+          {/* Top section with location name, temperature, and weather description */}
+          <div className="top">
+            <div className="location">
+              <p className="locationname">{data.name}</p>
+            </div>
+            <div className="temp">
+              {/* Display temperature in Celsius */}
               {data.main ? (
-                <p className="bold">
-                  {kelvinToFahrenheit(data.main.feels_like).toFixed()}°F
-                </p>
+                <h1>{kelvinToCelsius(data.main.temp).toFixed()}°C</h1>
               ) : null}
-              <p>Feels Like</p>
             </div>
-            <div className="humidity">
-              {/* Display humidity percentage */}
-              {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
-              <p>Humidity</p>
-            </div>
-            <div className="wind">
-              {/* Display wind speed in MPH */}
-              {data.wind ? (
-                <p className="bold">{data.wind.speed.toFixed()} MPH</p>
-              ) : null}
-              <p>Wind Speed</p>
+            <div className="description">
+              {/* Display weather description */}
+              {data.weather ? <p>{data.weather[0].main}</p> : null}
             </div>
           </div>
-        )}
 
-        {/* Display error message if there's an issue with the location */}
-        {error && (
-          <div className="error">
-            <p>{error}</p>
-          </div>
-        )}
-
-        {/* Footer section with copyright information */}
-        <footer>
-          <h4 className="copyright">&copy; 2024 Vishnu Krishnakumar</h4>
-        </footer>
+          {/* Bottom section with "Feels Like," Humidity, and Wind Speed */}
+          {data.name !== undefined && (
+            <div className="bottom">
+              <div className="feels">
+                {/* Display "Feels Like" temperature in Fahrenheit */}
+                {data.main ? (
+                  <p className="bold">
+                    {kelvinToFahrenheit(data.main.feels_like).toFixed()}°F
+                  </p>
+                ) : null}
+                <p>Feels Like</p>
+              </div>
+              <div className="humidity">
+                {/* Display humidity percentage */}
+                {data.main ? (
+                  <p className="bold">{data.main.humidity}%</p>
+                ) : null}
+                <p>Humidity</p>
+              </div>
+              <div className="wind">
+                {/* Display wind speed in MPH */}
+                {data.wind ? (
+                  <p className="bold">{data.wind.speed.toFixed()} MPH</p>
+                ) : null}
+                <p>Wind Speed</p>
+              </div>
+            </div>
+          )}
+          {/* Display error message if there's an issue with the location */}
+          {error && (
+            <div className="error">
+              <p>
+                <span role="img" aria-label="Warning">
+                  ⚠️
+                </span>{" "}
+                {error}
+              </p>
+            </div>
+          )}
+          {/* Footer section with copyright information */}
+          <footer className="footer">
+            <h4 className="copyright">&copy; 2024 Vishnu Krishnakumar</h4>
+          </footer>
+        </div>
       </div>
     </div>
   );
